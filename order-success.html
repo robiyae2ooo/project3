@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation - Alibaba.com Trade Assurance</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff6a00'/><text x='50' y='65' font-size='55' font-weight='bold' fill='white' text-anchor='middle'>a</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Alibaba Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Header -->
+  <header class="bg-white border-bottom py-3 shadow-sm">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="alibaba-brand-logo text-dark">
+            <span class="logo-main text-dark">Alibaba<span class="logo-highlight">.com</span></span>
+          </a>
+          <span class="text-secondary opacity-50 fs-4">|</span>
+          <span class="fw-bold fs-5 text-dark">Trade Assurance Order Confirmation</span>
+        </div>
+        <div class="d-flex align-items-center gap-3 small">
+          <a href="profile.html?tab=orders" class="text-dark fw-semibold text-decoration-none hover-orange">
+            <i class="bi bi-box me-1 text-orange"></i> My Orders
+          </a>
+          <a href="index.html" class="text-secondary text-decoration-none">Home</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Order Success Section -->
+  <main class="py-5">
+    <div class="container" style="max-width: 860px;">
+      
+      <!-- Top Success Alert Card -->
+      <div class="card p-4 p-md-5 border-0 rounded-4 bg-white shadow-sm mb-4 text-center">
+        <div class="mb-3">
+          <div class="d-inline-flex align-items-center justify-content-center bg-success-subtle text-success rounded-circle" style="width: 72px; height: 72px;">
+            <i class="bi bi-check-lg display-5"></i>
+          </div>
+        </div>
+
+        <h3 class="fw-bold text-dark mb-2">Trade Assurance Order Successfully Placed!</h3>
+        <p class="text-muted mb-3">
+          Your payment is securely authorized and held in <strong>Alibaba Escrow</strong> until product inspection and delivery are completed.
+        </p>
+
+        <div class="d-inline-flex flex-wrap justify-content-center gap-3 p-3 bg-light rounded-3 border mb-4 text-start">
+          <div>
+            <span class="small text-muted d-block">Trade Assurance Order No:</span>
+            <strong class="text-dark fs-6" id="orderSuccessId">ALB-2026-9841249</strong>
+          </div>
+          <div class="border-start ps-3">
+            <span class="small text-muted d-block">Logistics Tracking ID:</span>
+            <strong class="text-primary fs-6" id="orderSuccessTracking">TRK-89240182</strong>
+          </div>
+          <div class="border-start ps-3">
+            <span class="small text-muted d-block">Total Amount Paid:</span>
+            <strong class="text-danger fs-6" id="orderSuccessTotal">$1,000.00</strong>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="profile.html?tab=orders" class="btn btn-alibaba px-4 py-2 fw-semibold">
+            <i class="bi bi-box-seam me-1"></i> Track Order in Profile
+          </a>
+          <button type="button" class="btn btn-outline-dark px-4 py-2 fw-semibold" onclick="window.print()">
+            <i class="bi bi-printer me-1"></i> Print Proforma Invoice
+          </button>
+          <a href="products.html" class="btn btn-alibaba-outline px-4 py-2 fw-semibold">
+            Continue Sourcing Wholesale
+          </a>
+        </div>
+      </div>
+
+      <!-- Order Details Breakdown Card -->
+      <div class="card p-4 border rounded-3 bg-white shadow-sm mb-4">
+        <h5 class="fw-bold text-dark border-bottom pb-3 mb-3 d-flex align-items-center justify-content-between">
+          <span>Purchased Items & Contract Details</span>
+          <span class="badge text-bg-warning"><i class="bi bi-shield-check"></i> 100% Escrow Protection</span>
+        </h5>
+
+        <div id="orderSuccessItemsContainer">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="row g-3 border-top pt-3 mt-2">
+          <div class="col-md-6">
+            <h6 class="fw-bold text-dark small mb-2"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Delivery Address</h6>
+            <p class="small text-muted mb-0" id="orderSuccessAddress">
+              Alexander Wright, 742 Evergreen Logistics Blvd, Los Angeles, CA 90015, United States
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-bold text-dark small mb-2"><i class="bi bi-credit-card-2-front text-primary me-1"></i> Payment Method</h6>
+            <p class="small text-muted mb-0" id="orderSuccessPayment">
+              Trade Assurance Escrow (Credit / Debit Card)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alibaba Guarantee Timeline -->
+      <div class="card p-4 border rounded-3 bg-white shadow-sm">
+        <h6 class="fw-bold text-dark mb-3">Order Fulfillment Milestones</h6>
+        <div class="row text-center g-3">
+          <div class="col-3">
+            <div class="text-success fs-4"><i class="bi bi-check-circle-fill"></i></div>
+            <div class="small fw-bold text-dark mt-1">Payment Authorized</div>
+            <div class="text-muted" style="font-size: 11px;">Completed</div>
+          </div>
+          <div class="col-3">
+            <div class="text-primary fs-4"><i class="bi bi-gear-wide-connected"></i></div>
+            <div class="small fw-bold text-dark mt-1">Factory Dispatch</div>
+            <div class="text-muted" style="font-size: 11px;">Within 3 business days</div>
+          </div>
+          <div class="col-3">
+            <div class="text-secondary fs-4"><i class="bi bi-airplane"></i></div>
+            <div class="small fw-bold text-dark mt-1">Transit / Customs</div>
+            <div class="text-muted" style="font-size: 11px;">Air Express DDP</div>
+          </div>
+          <div class="col-3">
+            <div class="text-secondary fs-4"><i class="bi bi-box2-heart"></i></div>
+            <div class="small fw-bold text-dark mt-1">Delivery & Release</div>
+            <div class="text-muted" style="font-size: 11px;">Buyer Confirmation</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="alibaba-footer mt-5">
+    <div class="container-fluid px-lg-5">
+      <div class="footer-bottom-copyright text-center">
+        <p class="mb-1">Alibaba.com: Leading B2B E-Commerce Marketplace for Global Trade</p>
+        <p class="mb-0">© 1999-2026 Alibaba.com. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderOrderSuccessData();
+    });
+
+    function renderOrderSuccessData() {
+      let order = null;
+      const saved = sessionStorage.getItem("latest_order");
+      if (saved) {
+        try {
+          order = JSON.parse(saved);
+        } catch (e) {}
+      }
+
+      if (!order) {
+        // Fallback to latest order from Auth.getOrders()
+        const orders = Auth.getOrders();
+        order = orders.length > 0 ? orders[0] : null;
+      }
+
+      if (!order) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      document.getElementById("orderSuccessId").textContent = order.id;
+      document.getElementById("orderSuccessTracking").textContent = order.trackingNumber || "TRK-98412038";
+      document.getElementById("orderSuccessTotal").textContent = `$${order.totalAmount.toFixed(2)}`;
+      document.getElementById("orderSuccessAddress").textContent = order.shippingAddress;
+      document.getElementById("orderSuccessPayment").textContent = `${order.paymentMethod} (Trade Assurance Protected)`;
+
+      const container = document.getElementById("orderSuccessItemsContainer");
+      let html = "";
+      order.items.forEach(item => {
+        html += `
+          <div class="d-flex align-items-center gap-3 py-3 border-bottom">
+            <img src="${item.image}" alt="${item.name}" class="rounded object-fit-cover" style="width: 64px; height: 64px; border: 1px solid #e9ecef;">
+            <div class="flex-grow-1">
+              <h6 class="mb-1 text-truncate-2 text-dark" style="font-size: 13.5px;">${item.name}</h6>
+              <div class="small text-muted">
+                <span class="me-2">Color: <strong>${item.color || 'Standard'}</strong></span>
+                <span>Spec: <strong>${item.size || 'Standard'}</strong></span>
+              </div>
+            </div>
+            <div class="text-end" style="min-width: 120px;">
+              <div class="fw-bold text-dark fs-6">$${item.unitPrice.toFixed(2)}</div>
+              <div class="small text-muted">Qty: <strong>${item.quantity}</strong></div>
+              <div class="small text-danger fw-semibold mt-1">Total: $${item.totalPrice ? item.totalPrice.toFixed(2) : (item.quantity * item.unitPrice).toFixed(2)}</div>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `
+        <div class="d-flex justify-content-between py-2 small border-bottom">
+          <span class="text-muted">Selected Shipping Method:</span>
+          <strong class="text-dark">${order.shippingMethod} ($${order.shippingCost.toFixed(2)})</strong>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

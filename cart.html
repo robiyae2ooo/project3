@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Alibaba.com Trade Assurance</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff6a00'/><text x='50' y='65' font-size='55' font-weight='bold' fill='white' text-anchor='middle'>a</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Alibaba Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="alibaba-top-bar py-1 d-none d-md-block">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <a href="#" class="d-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+            <i class="bi bi-globe2 text-muted"></i>
+            <span id="headerPreferencesLabel">United States / USD ($) / English</span>
+          </a>
+          <span class="text-secondary opacity-50">|</span>
+          <a href="index.html#tradeAssuranceSection"><i class="bi bi-shield-check text-warning me-1"></i> Trade Assurance Protected Cart</a>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="profile.html?tab=buyerCentral">Buyer Central</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactSupplierModal">Help Center</a>
+          <a href="register.html?type=Seller" class="text-orange fw-semibold"><i class="bi bi-shop me-1"></i> Sell on Alibaba</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container-fluid px-lg-5">
+      <div class="row align-items-center g-2 g-lg-3">
+        <div class="col-6 col-md-3 col-lg-2">
+          <a href="index.html" class="alibaba-brand-logo">
+            <span class="logo-main">Alibaba<span class="logo-highlight">.com</span></span>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 order-3 order-md-2">
+          <div class="alibaba-search-wrapper">
+            <form class="alibaba-search-form" action="products.html" method="GET">
+              <input type="text" class="alibaba-search-input" name="q" placeholder="Search other wholesale products to add..." autocomplete="off">
+              <button type="submit" class="alibaba-search-submit-btn">
+                <i class="bi bi-search"></i>
+                <span class="d-none d-sm-inline">Search</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-4 order-2 order-md-3 text-end">
+          <div class="d-flex align-items-center justify-content-end gap-3 gap-xl-4">
+            <div id="headerUserSection"></div>
+            <a href="profile.html?tab=orders" class="text-white text-decoration-none d-none d-lg-flex align-items-center gap-1">
+              <i class="bi bi-receipt fs-5"></i>
+              <span class="small">Orders</span>
+            </a>
+            <a href="profile.html?tab=wishlist" class="text-white text-decoration-none position-relative d-flex align-items-center gap-1">
+              <i class="bi bi-heart fs-5"></i>
+              <span class="badge rounded-pill bg-danger header-wishlist-count position-absolute top-0 start-100 translate-middle" style="font-size: 10px; display: none;">0</span>
+            </a>
+            <a href="cart.html" class="text-white text-decoration-none position-relative d-flex align-items-center gap-2">
+              <div class="position-relative">
+                <i class="bi bi-cart3 fs-4 text-warning"></i>
+                <span class="badge rounded-pill bg-danger header-cart-count position-absolute top-0 start-100 translate-middle" style="font-size: 10px;">2</span>
+              </div>
+              <span class="small fw-bold d-none d-lg-inline">Cart</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Trade Assurance Security Strip -->
+  <div class="bg-warning-subtle border-bottom py-2">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex align-items-center justify-content-between small">
+        <div class="d-flex align-items-center gap-2 text-dark">
+          <i class="bi bi-shield-lock-fill text-warning fs-5"></i>
+          <span><strong>Alibaba Trade Assurance:</strong> Payments are held safely in escrow until you confirm delivery and product satisfaction.</span>
+        </div>
+        <a href="index.html#tradeAssuranceSection" class="text-dark fw-bold text-decoration-none d-none d-md-inline hover-orange">Learn how it protects you &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Shopping Cart Content -->
+  <main class="py-4">
+    <div class="container-fluid px-lg-5">
+      
+      <!-- Cart Page Header -->
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h4 class="fw-bold text-dark mb-0 d-flex align-items-center gap-2">
+          <span>Shopping Cart</span>
+          <span class="badge bg-secondary-subtle text-dark" id="cartHeaderCount" style="font-size: 13px;">0 items</span>
+        </h4>
+        <a href="products.html" class="btn btn-alibaba-outline btn-sm">
+          <i class="bi bi-arrow-left me-1"></i> Continue Sourcing
+        </a>
+      </div>
+
+      <div class="row g-4">
+        
+        <!-- Left: Cart Items Grouped by Supplier -->
+        <div class="col-lg-8">
+          
+          <!-- Bulk Control Header -->
+          <div class="card p-3 border rounded-3 bg-white shadow-sm mb-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="form-check d-flex align-items-center gap-2 mb-0">
+                <input class="form-check-input" type="checkbox" id="selectAllCheckbox" onchange="handleSelectAll(this.checked)">
+                <label class="form-check-label fw-bold text-dark small" for="selectAllCheckbox">
+                  Select All Items (<span id="selectAllCount">0</span>)
+                </label>
+              </div>
+              <button type="button" class="btn btn-link btn-sm text-danger text-decoration-none p-0" onclick="handleDeleteSelected()">
+                <i class="bi bi-trash me-1"></i> Delete Selected
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Supplier Groups Container -->
+          <div id="cartSupplierGroupsContainer">
+            <!-- Populated via renderCart() -->
+          </div>
+
+        </div>
+
+        <!-- Right: Sticky Order Summary Card -->
+        <div class="col-lg-4">
+          <div class="cart-summary-card">
+            <h5 class="fw-bold text-dark mb-3">Order Summary</h5>
+            
+            <div class="d-flex justify-content-between py-2 border-bottom small">
+              <span class="text-muted">Selected Items:</span>
+              <strong class="text-dark" id="summarySelectedCount">0 items</strong>
+            </div>
+
+            <div class="d-flex justify-content-between py-2 border-bottom small">
+              <span class="text-muted">Total Quantity:</span>
+              <strong class="text-dark" id="summaryTotalPieces">0 Units</strong>
+            </div>
+
+            <div class="d-flex justify-content-between py-2 border-bottom small">
+              <span class="text-muted">Item Subtotal:</span>
+              <strong class="text-dark" id="summarySubtotal">$0.00</strong>
+            </div>
+
+            <div class="d-flex justify-content-between py-2 border-bottom small">
+              <span class="text-muted">Estimated Shipping (DDP):</span>
+              <strong class="text-dark" id="summaryShipping">$0.00</strong>
+            </div>
+
+            <div class="d-flex justify-content-between py-2 border-bottom small text-success" id="summaryDiscountRow" style="display: none !important;">
+              <span>Bulk Order Discount (5%):</span>
+              <strong id="summaryDiscount">-$0.00</strong>
+            </div>
+
+            <div class="d-flex justify-content-between py-3 mb-3 border-bottom">
+              <div>
+                <span class="fw-bold fs-5 text-dark">Estimated Total:</span>
+                <span class="d-block small text-muted">Applicable taxes calculated at checkout</span>
+              </div>
+              <span class="fs-4 fw-bold text-danger" id="summaryGrandTotal">$0.00</span>
+            </div>
+
+            <button type="button" class="btn btn-alibaba w-100 py-2 fw-bold fs-6 mb-2" id="proceedToCheckoutBtn" onclick="proceedToCheckout()">
+              Proceed to Checkout (<span id="btnCheckoutCount">0</span>)
+            </button>
+
+            <a href="products.html" class="btn btn-outline-secondary w-100 btn-sm py-2 mb-3">
+              Browse More Wholesale Categories
+            </a>
+
+            <!-- Guarantee Badges -->
+            <div class="p-3 bg-light rounded-3 border">
+              <div class="d-flex align-items-center gap-2 mb-2 small fw-bold text-dark">
+                <i class="bi bi-shield-check text-warning fs-5"></i> Alibaba Trade Assurance
+              </div>
+              <ul class="list-unstyled small text-muted mb-0" style="font-size: 11.5px;">
+                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> 100% Payment Protection with Escrow</li>
+                <li class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Refund for quality dispute or late dispatch</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> Multi-currency supported checkout</li>
+              </ul>
+            </div>
+
+            <!-- Accepted Payments -->
+            <div class="text-center mt-3 text-muted" style="font-size: 18px;">
+              <span class="small d-block text-muted mb-1" style="font-size: 11px;">Supported Payment Methods:</span>
+              <i class="bi bi-credit-card-2-front me-2" title="Visa"></i>
+              <i class="bi bi-credit-card me-2" title="Mastercard"></i>
+              <i class="bi bi-paypal me-2" title="PayPal"></i>
+              <i class="bi bi-bank me-2" title="Wire Transfer"></i>
+              <i class="bi bi-apple" title="Apple Pay"></i>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Preferences Modal -->
+  <div class="modal fade" id="preferencesModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
+        <div class="modal-header border-bottom py-3">
+          <h5 class="modal-title fw-bold text-dark"><i class="bi bi-globe2 me-2 text-warning"></i> Regional Preferences</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="preferencesModalForm">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Ship to Country:</label>
+              <select class="form-select" id="prefCountrySelect">
+                <option value="United States" selected>United States (USA)</option>
+                <option value="United Kingdom">United Kingdom (UK)</option>
+                <option value="Germany">Germany (DE)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Currency:</label>
+              <select class="form-select" id="prefCurrencySelect">
+                <option value="USD ($)" selected>USD - US Dollar ($)</option>
+                <option value="EUR (€)">EUR - Euro (€)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Language:</label>
+              <select class="form-select" id="prefLanguageSelect">
+                <option value="English - EN" selected>English</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer border-top py-2">
+            <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-alibaba btn-sm px-4">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Supplier Modal -->
+  <div class="modal fade" id="contactSupplierModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
+        <div class="modal-header bg-light border-bottom py-3">
+          <h5 class="modal-title fw-bold text-dark fs-6" id="contactSupplierModalTitle">
+            <i class="bi bi-envelope-paper-fill text-orange me-2"></i> Inquire with Supplier
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="contactSupplierForm">
+          <div class="modal-body p-4">
+            <div class="alert alert-light border small py-2 mb-3">
+              Supplier: <strong id="contactSupplierNameDisplay">Alibaba Verified Supplier</strong>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Message:</label>
+              <textarea class="form-control form-control-sm" rows="3" placeholder="Inquire about bulk shipping, discounts, or production schedule..." required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer border-top py-2">
+            <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-alibaba btn-sm px-4">Send Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="alibaba-footer mt-5">
+    <div class="container-fluid px-lg-5">
+      <div class="footer-bottom-copyright text-center">
+        <p class="mb-1">Alibaba.com: Leading B2B E-Commerce Marketplace for Global Trade</p>
+        <p class="mb-0">© 1999-2026 Alibaba.com. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Cart Rendering & Interaction Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderCart();
+    });
+
+    function renderCart() {
+      const container = document.getElementById("cartSupplierGroupsContainer");
+      if (!container) return;
+
+      const items = Cart.getItems();
+      const totals = Cart.getTotals();
+
+      // Update header counters
+      document.getElementById("cartHeaderCount").textContent = `${items.length} item${items.length === 1 ? '' : 's'}`;
+      document.getElementById("selectAllCount").textContent = items.length;
+
+      // Check if all items are selected
+      const selectAllCb = document.getElementById("selectAllCheckbox");
+      if (selectAllCb) {
+        selectAllCb.checked = items.length > 0 && items.every(i => i.selected);
+      }
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div class="card p-5 text-center bg-white border rounded-3 shadow-sm my-3">
+            <div class="fs-1 text-muted mb-3"><i class="bi bi-cart-x"></i></div>
+            <h5 class="fw-bold text-dark">Your shopping cart is currently empty</h5>
+            <p class="text-muted small mb-4">Discover verified manufacturers and wholesale products ready for direct dispatch.</p>
+            <div>
+              <a href="products.html" class="btn btn-alibaba btn-sm px-4 py-2">
+                <i class="bi bi-search me-1"></i> Start Wholesale Sourcing
+              </a>
+            </div>
+          </div>
+        `;
+        updateSummaryUI(totals);
+        return;
+      }
+
+      // Group items by supplierId
+      const grouped = {};
+      items.forEach((item, index) => {
+        const sId = item.supplierId || "general_sup";
+        if (!grouped[sId]) {
+          grouped[sId] = {
+            supplierId: sId,
+            supplierName: item.supplierName || "Alibaba Gold Supplier",
+            supplierCountry: item.supplierCountry || "CN",
+            items: []
+          };
+        }
+        grouped[sId].items.push({ ...item, originalIndex: index });
+      });
+
+      let html = "";
+      Object.keys(grouped).forEach(sId => {
+        const group = grouped[sId];
+        const allGroupSelected = group.items.every(i => i.selected);
+
+        html += `
+          <div class="cart-supplier-group">
+            
+            <!-- Supplier Header with Checkbox -->
+            <div class="cart-supplier-header">
+              <div class="d-flex align-items-center gap-2">
+                <input class="form-check-input" type="checkbox" id="supCb_${sId}" ${allGroupSelected ? 'checked' : ''} onchange="handleSupplierToggle('${sId}', this.checked)">
+                <i class="bi bi-shop text-primary"></i>
+                <label class="form-check-label fw-bold text-dark small" for="supCb_${sId}">
+                  ${group.supplierName}
+                </label>
+                <span class="badge-verified-supplier"><i class="bi bi-patch-check-fill"></i> Verified</span>
+              </div>
+              <button class="btn btn-link btn-sm text-muted text-decoration-none p-0 small" onclick="App.openChat('${group.supplierName}')">
+                <i class="bi bi-chat-dots me-1"></i> Chat with Supplier
+              </button>
+            </div>
+
+            <!-- Items under supplier -->
+            <div>
+        `;
+
+        group.items.forEach(item => {
+          const itemTotal = (item.quantity * item.unitPrice).toFixed(2);
+          html += `
+            <div class="cart-item-row">
+              <input class="form-check-input" type="checkbox" ${item.selected ? 'checked' : ''} onchange="handleItemToggle(${item.originalIndex})">
+              
+              <a href="product-details.html?id=${item.id}">
+                <img src="${item.image}" alt="${item.name}" class="rounded object-fit-cover" style="width: 80px; height: 80px; border: 1px solid #e9ecef;">
+              </a>
+
+              <div class="flex-grow-1 overflow-hidden">
+                <h6 class="mb-1 text-truncate-2" style="font-size: 13.5px;">
+                  <a href="product-details.html?id=${item.id}" class="text-decoration-none text-dark hover-orange">${item.name}</a>
+                </h6>
+                <div class="small text-muted mb-1">
+                  <span class="badge bg-light text-dark border me-1">Color: ${item.color || 'Standard'}</span>
+                  <span class="badge bg-light text-dark border">Spec: ${item.size || 'Standard'}</span>
+                </div>
+                <div class="small text-success"><i class="bi bi-lightning-charge-fill"></i> ${item.leadTime || 'Ships within 3 days'}</div>
+              </div>
+
+              <!-- Price & Tier -->
+              <div class="text-end" style="min-width: 100px;">
+                <div class="fw-bold text-dark fs-6">$${item.unitPrice.toFixed(2)}</div>
+                <div class="text-muted" style="font-size: 11px;">/${item.unit || 'piece'}</div>
+                <div class="badge text-bg-light border text-muted mt-1" style="font-size: 10px;">Tier Price</div>
+              </div>
+
+              <!-- Quantity Controls & MOQ -->
+              <div class="text-center" style="min-width: 130px;">
+                <div class="cart-qty-control mb-1">
+                  <button type="button" class="cart-qty-btn" onclick="updateItemQty(${item.originalIndex}, ${item.quantity - 1})"><i class="bi bi-dash"></i></button>
+                  <input type="number" class="cart-qty-input" value="${item.quantity}" min="${item.minOrder}" onchange="updateItemQty(${item.originalIndex}, this.value)">
+                  <button type="button" class="cart-qty-btn" onclick="updateItemQty(${item.originalIndex}, ${item.quantity + 1})"><i class="bi bi-plus"></i></button>
+                </div>
+                <div class="text-muted" style="font-size: 11px;">Min. Order: <strong>${item.minOrder}</strong></div>
+              </div>
+
+              <!-- Item Subtotal -->
+              <div class="text-end" style="min-width: 110px;">
+                <div class="fw-bold text-danger fs-6">$${itemTotal}</div>
+                <button type="button" class="btn btn-link btn-sm text-secondary text-decoration-none p-0 mt-1" onclick="deleteCartItem(${item.originalIndex})" title="Remove item">
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </div>
+
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      updateSummaryUI(totals);
+    }
+
+    function updateSummaryUI(totals) {
+      document.getElementById("summarySelectedCount").textContent = `${totals.selectedCount} items`;
+      document.getElementById("summaryTotalPieces").textContent = `${totals.totalPieces} Units`;
+      document.getElementById("summarySubtotal").textContent = `$${totals.subtotal.toFixed(2)}`;
+      document.getElementById("summaryShipping").textContent = `$${totals.shippingTotal.toFixed(2)}`;
+      document.getElementById("summaryGrandTotal").textContent = `$${totals.finalTotal.toFixed(2)}`;
+      document.getElementById("btnCheckoutCount").textContent = totals.selectedCount;
+
+      const discountRow = document.getElementById("summaryDiscountRow");
+      if (totals.bulkDiscount > 0) {
+        discountRow.style.removeProperty("display");
+        document.getElementById("summaryDiscount").textContent = `-$${totals.bulkDiscount.toFixed(2)}`;
+      } else {
+        discountRow.style.setProperty("display", "none", "important");
+      }
+
+      const checkoutBtn = document.getElementById("proceedToCheckoutBtn");
+      if (checkoutBtn) {
+        checkoutBtn.disabled = totals.selectedCount === 0;
+      }
+    }
+
+    function handleSelectAll(isChecked) {
+      Cart.toggleSelectAll(isChecked);
+      renderCart();
+    }
+
+    function handleSupplierToggle(supplierId, isChecked) {
+      Cart.toggleSupplierSelection(supplierId, isChecked);
+      renderCart();
+    }
+
+    function handleItemToggle(index) {
+      Cart.toggleItemSelection(index);
+      renderCart();
+    }
+
+    function updateItemQty(index, newQty) {
+      const items = Cart.getItems();
+      const item = items[index];
+      if (item) {
+        const min = item.minOrder || 1;
+        if (newQty < min) {
+          Cart.showToast(`Minimum order for this product is ${min} ${item.unit || 'units'}.`);
+          newQty = min;
+        }
+        Cart.updateQuantity(index, newQty);
+        renderCart();
+      }
+    }
+
+    function deleteCartItem(index) {
+      Cart.removeItem(index);
+      Cart.showToast("Product removed from cart.");
+      renderCart();
+    }
+
+    function handleDeleteSelected() {
+      const items = Cart.getItems();
+      const selectedCount = items.filter(i => i.selected).length;
+      if (selectedCount === 0) {
+        alert("Please select the items you wish to delete.");
+        return;
+      }
+      if (confirm(`Remove ${selectedCount} selected item(s) from your cart?`)) {
+        Cart.removeSelected();
+        Cart.showToast("Selected items removed from cart.");
+        renderCart();
+      }
+    }
+
+    function proceedToCheckout() {
+      const totals = Cart.getTotals();
+      if (totals.selectedCount === 0) {
+        alert("Please select at least one product to checkout.");
+        return;
+      }
+      // Clear any buy-now single item session to use the cart selection
+      sessionStorage.removeItem("buy_now_item");
+      window.location.href = "checkout.html";
+    }
+  </script>
+</body>
+</html>

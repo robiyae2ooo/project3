@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Alibaba.com</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff6a00'/><text x='50' y='65' font-size='55' font-weight='bold' fill='white' text-anchor='middle'>a</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Alibaba Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .zoom-container {
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .zoom-container img {
+      transition: transform 0.2s ease-out;
+    }
+    .variation-pill {
+      padding: 6px 14px;
+      border: 1px solid var(--alb-border);
+      border-radius: var(--alb-radius-sm);
+      cursor: pointer;
+      font-size: 13px;
+      background: #ffffff;
+      transition: var(--alb-transition);
+    }
+    .variation-pill:hover, .variation-pill.active {
+      border-color: var(--alb-orange);
+      background-color: var(--alb-orange-light);
+      color: var(--alb-orange);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="alibaba-top-bar py-1 d-none d-md-block">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <a href="#" class="d-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+            <i class="bi bi-globe2 text-muted"></i>
+            <span id="headerPreferencesLabel">United States / USD ($) / English</span>
+            <i class="bi bi-chevron-down small" style="font-size: 10px;"></i>
+          </a>
+          <span class="text-secondary opacity-50">|</span>
+          <a href="products.html?filter=readyToShip"><i class="bi bi-truck me-1"></i> Ready to Ship</a>
+          <span class="text-secondary opacity-50">|</span>
+          <a href="index.html#tradeAssuranceSection"><i class="bi bi-shield-check text-warning me-1"></i> Trade Assurance</a>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="profile.html?tab=buyerCentral">Buyer Central</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactSupplierModal">Help Center</a>
+          <a href="register.html?type=Seller" class="text-orange fw-semibold"><i class="bi bi-shop me-1"></i> Sell on Alibaba</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container-fluid px-lg-5">
+      <div class="row align-items-center g-2 g-lg-3">
+        <div class="col-6 col-md-3 col-lg-2">
+          <a href="index.html" class="alibaba-brand-logo">
+            <span class="logo-main">Alibaba<span class="logo-highlight">.com</span></span>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 order-3 order-md-2">
+          <div class="alibaba-search-wrapper">
+            <form class="alibaba-search-form" action="products.html" method="GET">
+              <select class="alibaba-search-category" name="cat">
+                <option value="all">Products</option>
+                <option value="electronics">Electronics</option>
+                <option value="apparel">Apparel</option>
+                <option value="machinery">Machinery</option>
+              </select>
+              <input type="text" class="alibaba-search-input" name="q" placeholder="What are you looking for wholesale?" autocomplete="off">
+              <button type="submit" class="alibaba-search-submit-btn">
+                <i class="bi bi-search"></i>
+                <span class="d-none d-sm-inline">Search</span>
+              </button>
+              <div class="search-suggestions-box d-none"></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-4 order-2 order-md-3 text-end">
+          <div class="d-flex align-items-center justify-content-end gap-3 gap-xl-4">
+            <div id="headerUserSection"></div>
+            <button class="btn btn-link text-white text-decoration-none p-0 d-none d-xl-flex align-items-center gap-1" onclick="App.openChat()">
+              <i class="bi bi-chat-dots fs-5"></i>
+              <span class="small d-none d-xxl-inline">Messages</span>
+            </button>
+            <a href="profile.html?tab=orders" class="text-white text-decoration-none d-none d-lg-flex align-items-center gap-1">
+              <i class="bi bi-receipt fs-5"></i>
+              <span class="small">Orders</span>
+            </a>
+            <a href="profile.html?tab=wishlist" class="text-white text-decoration-none position-relative d-flex align-items-center gap-1">
+              <i class="bi bi-heart fs-5"></i>
+              <span class="badge rounded-pill bg-danger header-wishlist-count position-absolute top-0 start-100 translate-middle" style="font-size: 10px; display: none;">0</span>
+            </a>
+            <a href="cart.html" class="text-white text-decoration-none position-relative d-flex align-items-center gap-2">
+              <div class="position-relative">
+                <i class="bi bi-cart3 fs-4 text-warning"></i>
+                <span class="badge rounded-pill bg-danger header-cart-count position-absolute top-0 start-100 translate-middle" style="font-size: 10px;">2</span>
+              </div>
+              <span class="small fw-bold d-none d-lg-inline">Cart</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="bg-white border-bottom py-2">
+    <div class="container-fluid px-lg-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+          <li class="breadcrumb-item"><a href="products.html" class="text-decoration-none text-muted">Products</a></li>
+          <li class="breadcrumb-item"><a href="products.html" class="text-decoration-none text-muted" id="breadcrumbCategoryName">Electronics</a></li>
+          <li class="breadcrumb-item active text-dark fw-semibold text-truncate" id="breadcrumbProductTitle" style="max-width: 320px;">Product Name</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Product Details Main Section -->
+  <main class="py-4">
+    <div class="container-fluid px-lg-5">
+      <div class="row g-4">
+        
+        <!-- Left: Image Gallery (Magnifier / Zoom & Thumbnails) -->
+        <div class="col-lg-5 col-xl-4">
+          <div class="card p-3 border rounded-3 bg-white shadow-sm sticky-lg-top" style="top: 85px; z-index: 10;">
+            <!-- Main Preview with Zoom -->
+            <div class="gallery-main-img-wrap zoom-container" id="mainImageContainer">
+              <img src="" id="mainGalleryImage" class="gallery-main-img" alt="Product Image">
+              <span class="card-floating-badge" id="productFloatingBadge">Top Ranking</span>
+            </div>
+
+            <!-- Thumbnail Rail -->
+            <div class="gallery-thumbnail-strip" id="galleryThumbnails">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Trade Assurance & Favorite Actions -->
+            <div class="d-flex align-items-center justify-content-between pt-3 mt-3 border-top">
+              <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1" id="detailsWishlistBtn" onclick="toggleDetailsWishlist()">
+                <i class="bi bi-heart" id="detailsWishlistIcon"></i> Save to Favorites
+              </button>
+              <div class="d-flex align-items-center gap-2 small text-muted">
+                <span>Share:</span>
+                <a href="#" class="text-secondary" onclick="navigator.clipboard.writeText(window.location.href); Cart.showToast('Product link copied to clipboard!'); return false;"><i class="bi bi-share"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Product Info, Tiered Pricing, Variations & MOQ Selector -->
+        <div class="col-lg-7 col-xl-5">
+          <div class="card p-4 border rounded-3 bg-white shadow-sm">
+            
+            <!-- Badges & Title -->
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge-trade-assurance"><i class="bi bi-shield-lock-fill"></i> Trade Assurance</span>
+              <span class="badge-verified-supplier"><i class="bi bi-patch-check-fill"></i> Verified Supplier</span>
+              <span class="badge text-bg-light border text-primary small"><i class="bi bi-truck"></i> Ready to Ship</span>
+            </div>
+            
+            <h1 class="h5 fw-bold text-dark lh-base mb-3" id="detailsProductTitle">Loading Product Title...</h1>
+
+            <!-- Ratings, Reviews, Sold count -->
+            <div class="d-flex flex-wrap align-items-center gap-3 pb-3 mb-3 border-bottom small text-muted">
+              <div class="d-flex align-items-center gap-1 text-dark fw-bold">
+                <i class="bi bi-star-fill text-warning"></i>
+                <span id="detailsRatingScore">4.9</span>
+                <span class="fw-normal text-muted" id="detailsReviewsCount">(428 reviews)</span>
+              </div>
+              <span>•</span>
+              <span id="detailsSoldCount">45,000+ sold</span>
+              <span>•</span>
+              <span class="text-success"><i class="bi bi-clock-check"></i> High Reorder Rate</span>
+            </div>
+
+            <!-- Tiered Wholesale Pricing Table -->
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted text-uppercase letter-spacing-1 mb-2">Wholesale Tiered Pricing</label>
+              <div class="pricing-tier-grid" id="detailsTierGrid">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Variations: Colors -->
+            <div class="mb-3" id="colorVariationsWrap">
+              <label class="form-label small fw-bold text-dark mb-2">
+                Color: <span class="fw-normal text-muted" id="selectedColorLabel">Titanium Orange</span>
+              </label>
+              <div class="d-flex flex-wrap gap-2" id="colorSwatchesContainer">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Variations: Specifications / Sizes -->
+            <div class="mb-4" id="sizeVariationsWrap">
+              <label class="form-label small fw-bold text-dark mb-2">
+                Specification / Size: <span class="fw-normal text-muted" id="selectedSizeLabel">49mm Case</span>
+              </label>
+              <div class="d-flex flex-wrap gap-2" id="sizePillsContainer">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Quantity & MOQ Selector -->
+            <div class="p-3 bg-light rounded-3 border mb-4">
+              <div class="row align-items-center g-3">
+                <div class="col-sm-6">
+                  <div class="small text-muted mb-1">
+                    Minimum Order: <strong class="text-dark" id="detailsMoqLabel">10 Pieces</strong>
+                  </div>
+                  <div class="cart-qty-control">
+                    <button type="button" class="cart-qty-btn" onclick="adjustDetailsQty(-1)"><i class="bi bi-dash"></i></button>
+                    <input type="number" id="detailsQtyInput" class="cart-qty-input" value="10" min="1" onchange="handleQtyChange()">
+                    <button type="button" class="cart-qty-btn" onclick="adjustDetailsQty(1)"><i class="bi bi-plus"></i></button>
+                  </div>
+                </div>
+                <div class="col-sm-6 text-sm-end">
+                  <div class="small text-muted">Subtotal (Excl. Shipping):</div>
+                  <div class="fs-4 fw-bold text-danger" id="detailsSubtotalDisplay">$165.00</div>
+                  <div class="small text-muted" id="detailsUnitPriceDisplay">Unit price: $16.50 / piece</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping Calculator -->
+            <div class="mb-4 p-3 border rounded-3 bg-white">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="fw-bold small text-dark"><i class="bi bi-truck text-primary me-1"></i> Shipping to United States</span>
+                <span class="small text-success fw-semibold" id="detailsFastDispatchLabel">Dispatch in 3 days</span>
+              </div>
+              <div class="small text-muted mb-2" id="detailsShippingSummary">
+                Estimated 5-8 business days via Express Air Delivery
+              </div>
+              <div class="small text-dark fw-semibold">
+                Est. Shipping: <span class="text-danger" id="detailsShippingCost">$35.00</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons: Buy Now, Add to Cart, Contact Supplier -->
+            <div class="d-flex flex-column gap-2 mb-3">
+              <div class="row g-2">
+                <div class="col-6">
+                  <button type="button" class="btn btn-alibaba w-100 py-2 fw-bold" onclick="handleBuyNow()">
+                    <i class="bi bi-lightning-fill me-1"></i> Start Order / Buy Now
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="btn btn-alibaba-dark w-100 py-2 fw-bold" onclick="handleAddToCart()">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col-6">
+                  <button type="button" class="btn btn-alibaba-outline w-100 py-2" onclick="openSupplierInquiry()">
+                    <i class="bi bi-envelope-paper me-1"></i> Contact Supplier
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="btn btn-outline-dark w-100 py-2" onclick="openSupplierChat()">
+                    <i class="bi bi-chat-dots me-1"></i> Chat Now
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trade Assurance Protected Strip -->
+            <div class="p-3 bg-warning-subtle border border-warning-subtle rounded-3 d-flex align-items-center gap-3">
+              <i class="bi bi-shield-shaded text-warning fs-2"></i>
+              <div class="small">
+                <div class="fw-bold text-dark">Alibaba Trade Assurance Order Protection</div>
+                <div class="text-muted">Protects online orders when payment is made through Alibaba.com with refund policies and fast dispatch.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Supplier Detailed Profile Card -->
+        <div class="col-lg-12 col-xl-3">
+          <div class="supplier-detail-card sticky-lg-top" style="top: 85px;">
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <div class="bg-dark text-white rounded p-3 text-center" style="width: 48px; height: 48px;">
+                <i class="bi bi-building fs-5"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold text-dark mb-1" id="supplierNameDisplay">Supplier Co., Ltd.</h6>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="badge-verified-supplier"><i class="bi bi-patch-check-fill"></i> Verified PRO</span>
+                  <span class="badge-gold-supplier" id="supplierYearsDisplay"><i class="bi bi-award-fill"></i> 9 Yrs</span>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-2">
+
+            <!-- Supplier Metrics -->
+            <div class="small mb-3">
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <span class="text-muted">Country / Region:</span>
+                <strong class="text-dark" id="supplierCountryDisplay">China</strong>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <span class="text-muted">Response Rate:</span>
+                <strong class="text-success" id="supplierResponseRate">99.1%</strong>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <span class="text-muted">Average Response Time:</span>
+                <strong class="text-dark" id="supplierResponseTime">≤1h</strong>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <span class="text-muted">On-Time Delivery:</span>
+                <strong class="text-success" id="supplierOnTimeDelivery">99.5%</strong>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <span class="text-muted">Transactions:</span>
+                <strong class="text-dark" id="supplierTransactions">1,200+ orders</strong>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <span class="text-muted">Plant Area:</span>
+                <strong class="text-dark" id="supplierFloorSpace">12,000 m²</strong>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="mb-3">
+              <span class="d-block small text-muted mb-2 fw-semibold">Audited Certifications:</span>
+              <div class="d-flex flex-wrap gap-1" id="supplierCertsContainer">
+                <span class="badge bg-light text-dark border">ISO9001</span>
+                <span class="badge bg-light text-dark border">CE</span>
+                <span class="badge bg-light text-dark border">RoHS</span>
+                <span class="badge bg-light text-dark border">TÜV Audited</span>
+              </div>
+            </div>
+
+            <!-- Supplier CTA -->
+            <button class="btn btn-alibaba w-100 btn-sm py-2 mb-2" onclick="openSupplierInquiry()">
+              <i class="bi bi-envelope me-1"></i> Send Inquiry to Supplier
+            </button>
+            <button class="btn btn-outline-dark w-100 btn-sm py-2" onclick="openSupplierChat()">
+              <i class="bi bi-chat-dots me-1"></i> Instant Chat
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Detailed Product Tabs Section -->
+      <section class="mt-5">
+        <div class="card border rounded-3 bg-white shadow-sm overflow-hidden">
+          
+          <div class="card-header bg-light border-bottom p-0">
+            <ul class="nav nav-tabs border-0" id="productTab" role="tablist">
+              <li class="nav-item">
+                <button class="nav-link active fw-bold py-3 px-4 text-dark" id="overview-tab" data-bs-toggle="tab" data-bs-target="#tab-overview" type="button">Product Overview</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold py-3 px-4 text-dark" id="specs-tab" data-bs-toggle="tab" data-bs-target="#tab-specs" type="button">Specifications</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold py-3 px-4 text-dark" id="company-tab" data-bs-toggle="tab" data-bs-target="#tab-company" type="button">Company Profile</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold py-3 px-4 text-dark" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#tab-reviews" type="button">Customer Reviews</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-body p-4">
+            <div class="tab-content" id="productTabContent">
+              
+              <!-- Tab 1: Overview -->
+              <div class="tab-pane fade show active" id="tab-overview" role="tabpanel">
+                <h5 class="fw-bold text-dark mb-3">Key Highlights & Production Capabilities</h5>
+                <p class="text-muted mb-4" id="detailsOverviewParagraph">
+                  This wholesale product is manufactured using industrial-grade materials with full support for customized logo printing, customized retail packaging boxes, and bespoke specifications for international importers and e-commerce sellers.
+                </p>
+
+                <div class="row g-4 mb-4">
+                  <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3 h-100 border">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-shield-check text-success me-2"></i> Quality Assurance</h6>
+                      <p class="small text-muted mb-0">100% pre-shipment quality inspection with high-precision testing equipment. Compliant with CE, RoHS, and FCC directives.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3 h-100 border">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-box-seam text-primary me-2"></i> Custom Packaging</h6>
+                      <p class="small text-muted mb-0">OEM/ODM branded packaging boxes, blister packaging, barcodes, Amazon FNSKU labelling, and custom cartons.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="p-3 bg-light rounded-3 h-100 border">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-lightning-charge text-warning me-2"></i> Fast Sample Dispatch</h6>
+                      <p class="small text-muted mb-0">Paid sample testing available with delivery via DHL / FedEx in 3 to 7 business days.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Gallery Showcase in Overview -->
+                <div class="row g-3" id="overviewGalleryShowcase">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Tab 2: Specifications Table -->
+              <div class="tab-pane fade" id="tab-specs" role="tabpanel">
+                <h5 class="fw-bold text-dark mb-3">Technical Specifications</h5>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped align-middle mb-0" id="detailsSpecsTable">
+                    <tbody>
+                      <!-- Populated via JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Tab 3: Company Profile -->
+              <div class="tab-pane fade" id="tab-company" role="tabpanel">
+                <h5 class="fw-bold text-dark mb-3">Verified Factory & Production Lines</h5>
+                <p class="text-muted mb-3" id="companyOverviewText">
+                  Audited by SGS and TÜV Rheinland. Equipped with automated modern machinery, clean room production, and experienced engineering personnel.
+                </p>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded-3 bg-light">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Factory Audit Report</h6>
+                      <ul class="list-unstyled small text-muted mb-0">
+                        <li class="mb-1">• Verification Type: Onsite Inspection</li>
+                        <li class="mb-1">• Production Capacity: 250,000 units / month</li>
+                        <li class="mb-1">• Export Ratio: 85% to North America and Western Europe</li>
+                        <li>• Trade Terms: FOB, CIF, DDP, EXW</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded-3 bg-light">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-truck me-2 text-primary"></i> Packaging & Logistics</h6>
+                      <ul class="list-unstyled small text-muted mb-0">
+                        <li class="mb-1">• Port of Dispatch: Shenzhen / Ningbo / Shanghai</li>
+                        <li class="mb-1">• Packing: Export Corrugated Carton with Protective Foam</li>
+                        <li class="mb-1">• Lead Time: 3-5 days for ready goods, 12-15 days for OEM</li>
+                        <li>• Payment Terms: T/T, Trade Assurance Escrow, PayPal</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 4: Customer Reviews -->
+              <div class="tab-pane fade" id="tab-reviews" role="tabpanel">
+                <div class="row g-4 align-items-center mb-4">
+                  <div class="col-md-4 text-center border-end">
+                    <div class="display-4 fw-bold text-dark" id="reviewsScoreBig">4.9</div>
+                    <div class="text-warning fs-5 mb-1">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="small text-muted">Overall Supplier & Product Rating</div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="d-flex align-items-center gap-3 mb-2 small">
+                      <span style="width: 70px;">5 Stars</span>
+                      <div class="progress flex-grow-1" style="height: 8px;">
+                        <div class="progress-bar bg-warning" style="width: 92%;"></div>
+                      </div>
+                      <span class="text-muted">92%</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mb-2 small">
+                      <span style="width: 70px;">4 Stars</span>
+                      <div class="progress flex-grow-1" style="height: 8px;">
+                        <div class="progress-bar bg-warning" style="width: 6%;"></div>
+                      </div>
+                      <span class="text-muted">6%</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 small">
+                      <span style="width: 70px;">3 Stars</span>
+                      <div class="progress flex-grow-1" style="height: 8px;">
+                        <div class="progress-bar bg-warning" style="width: 2%;"></div>
+                      </div>
+                      <span class="text-muted">2%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Review Items -->
+                <div class="border-top pt-3">
+                  <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <div class="d-flex align-items-center gap-2">
+                        <strong class="text-dark small">David M. (United States)</strong>
+                        <span class="badge text-bg-light border text-success" style="font-size: 10px;"><i class="bi bi-patch-check-fill"></i> Verified Buyer</span>
+                      </div>
+                      <span class="small text-muted">2 weeks ago</span>
+                    </div>
+                    <div class="text-warning small mb-1">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="small text-dark mb-0">Excellent build quality. We ordered 100 units for our first test batch and our customers loved the finishing. Fast DHL delivery and supplier communication was top tier.</p>
+                  </div>
+
+                  <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <div class="d-flex align-items-center gap-2">
+                        <strong class="text-dark small">Hans K. (Germany)</strong>
+                        <span class="badge text-bg-light border text-success" style="font-size: 10px;"><i class="bi bi-patch-check-fill"></i> Verified Buyer</span>
+                      </div>
+                      <span class="small text-muted">1 month ago</span>
+                    </div>
+                    <div class="text-warning small mb-1">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="small text-dark mb-0">Great supplier! Custom logo printing came out sharp and exact to Pantone specifications. Will place a recurring monthly order.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modals & Drawers -->
+  <!-- Preferences Modal -->
+  <div class="modal fade" id="preferencesModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
+        <div class="modal-header border-bottom py-3">
+          <h5 class="modal-title fw-bold text-dark"><i class="bi bi-globe2 me-2 text-warning"></i> Regional Preferences</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="preferencesModalForm">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Ship to Country:</label>
+              <select class="form-select" id="prefCountrySelect">
+                <option value="United States" selected>United States (USA)</option>
+                <option value="United Kingdom">United Kingdom (UK)</option>
+                <option value="Germany">Germany (DE)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Currency:</label>
+              <select class="form-select" id="prefCurrencySelect">
+                <option value="USD ($)" selected>USD - US Dollar ($)</option>
+                <option value="EUR (€)">EUR - Euro (€)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Language:</label>
+              <select class="form-select" id="prefLanguageSelect">
+                <option value="English - EN" selected>English</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer border-top py-2">
+            <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-alibaba btn-sm px-4">Save Preferences</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Supplier Modal -->
+  <div class="modal fade" id="contactSupplierModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
+        <div class="modal-header bg-light border-bottom py-3">
+          <h5 class="modal-title fw-bold text-dark fs-6" id="contactSupplierModalTitle">
+            <i class="bi bi-envelope-paper-fill text-orange me-2"></i> Inquire with Supplier
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="contactSupplierForm">
+          <div class="modal-body p-4">
+            <div class="alert alert-light border small d-flex align-items-center gap-2 py-2 mb-3">
+              <i class="bi bi-shield-check text-success fs-5"></i>
+              <div>
+                Supplier: <strong id="contactSupplierNameDisplay">Supplier Co., Ltd.</strong>
+                <span class="d-block text-muted" style="font-size: 11px;">Typically replies within 1 hour</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Product:</label>
+              <input type="text" id="contactSupplierProductInput" class="form-control form-control-sm" readonly>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small fw-semibold text-muted">Quantity Needed:</label>
+                <input type="number" id="contactInquiryQty" class="form-control form-control-sm" value="50" min="1" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small fw-semibold text-muted">Country:</label>
+                <input type="text" class="form-control form-control-sm" value="United States" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-muted">Message:</label>
+              <textarea class="form-control form-control-sm" rows="3" placeholder="Hello, I want to inquire about custom logo and DDP shipping to our warehouse..." required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer border-top py-2">
+            <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-alibaba btn-sm px-4">Send Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Chat Drawer -->
+  <div class="alibaba-chat-drawer" id="alibabaLiveChatDrawer">
+    <div class="chat-drawer-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-person-circle fs-4 text-warning"></i>
+        <div>
+          <div class="fw-bold small text-truncate" id="chatDrawerSupplierName" style="max-width: 180px;">Supplier Sales Rep</div>
+          <div class="text-white-50" style="font-size: 10px;">Online | Ready to assist</div>
+        </div>
+      </div>
+      <button type="button" class="btn-close btn-close-white small" onclick="App.closeChat()"></button>
+    </div>
+    <div class="chat-drawer-messages" id="chatDrawerMessages">
+      <div class="d-flex justify-content-start mb-2">
+        <div class="p-2 rounded bg-light border text-dark small" style="max-width: 80%; border-radius: 12px 12px 12px 2px !important;">
+          Hello! Welcome to our factory direct wholesale store. How may we assist your bulk order today?
+          <div class="text-muted" style="font-size: 10px;">Just now</div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-drawer-footer">
+      <form id="chatDrawerForm" class="d-flex gap-2">
+        <input type="text" id="chatDrawerInput" class="form-control form-control-sm" placeholder="Message supplier..." autocomplete="off">
+        <button type="submit" class="btn btn-alibaba btn-sm px-3"><i class="bi bi-send-fill"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="alibaba-footer mt-5">
+    <div class="container-fluid px-lg-5">
+      <div class="footer-bottom-copyright text-center">
+        <p class="mb-1">Alibaba.com: Leading B2B E-Commerce Marketplace for Global Trade</p>
+        <p class="mb-0">© 1999-2026 Alibaba.com. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Product Details Logic -->
+  <script>
+    let currentProduct = null;
+    let selectedColor = "";
+    let selectedSize = "";
+    let currentQty = 10;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      loadProductData();
+      setupImageMagnifier();
+    });
+
+    function loadProductData() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id") || "alb-1001";
+      currentProduct = Catalog.getProductById(productId);
+
+      if (!currentProduct) {
+        currentProduct = Catalog.getAllProducts()[0];
+      }
+
+      // Populate Title & Breadcrumbs
+      document.title = `${currentProduct.name} - Alibaba.com`;
+      document.getElementById("breadcrumbProductTitle").textContent = currentProduct.name;
+      const catObj = Catalog.getCategoryById(currentProduct.category);
+      if (catObj) document.getElementById("breadcrumbCategoryName").textContent = catObj.name;
+      document.getElementById("detailsProductTitle").textContent = currentProduct.name;
+
+      if (currentProduct.badge) {
+        document.getElementById("productFloatingBadge").textContent = currentProduct.badge;
+      } else {
+        document.getElementById("productFloatingBadge").style.display = "none";
+      }
+
+      // Ratings
+      document.getElementById("detailsRatingScore").textContent = currentProduct.rating;
+      document.getElementById("detailsReviewsCount").textContent = `(${currentProduct.reviewsCount} reviews)`;
+      document.getElementById("detailsSoldCount").textContent = `${currentProduct.soldCount} sold`;
+
+      // Main image & Thumbnails
+      const mainImg = document.getElementById("mainGalleryImage");
+      mainImg.src = currentProduct.images[0];
+
+      const thumbContainer = document.getElementById("galleryThumbnails");
+      let thumbHtml = "";
+      currentProduct.images.forEach((img, idx) => {
+        thumbHtml += `
+          <div class="gallery-thumb-item ${idx === 0 ? 'active' : ''}" onclick="selectThumb(this, '${img}')">
+            <img src="${img}" alt="Thumbnail">
+          </div>
+        `;
+      });
+      thumbContainer.innerHTML = thumbHtml;
+
+      // Tiered Pricing Table
+      const tierContainer = document.getElementById("detailsTierGrid");
+      let tierHtml = "";
+      currentProduct.tieredPricing.forEach((tier, idx) => {
+        const qtyLabel = tier.maxQty ? `${tier.minQty} - ${tier.maxQty} ${currentProduct.unit}` : `≥ ${tier.minQty} ${currentProduct.unit}`;
+        tierHtml += `
+          <div class="pricing-tier-box ${idx === 0 ? 'active' : ''}" id="tierBox_${idx}">
+            <div class="tier-qty">${qtyLabel}</div>
+            <div class="tier-price">$${tier.price.toFixed(2)}</div>
+          </div>
+        `;
+      });
+      tierContainer.innerHTML = tierHtml;
+
+      // Color variations
+      if (currentProduct.variations && currentProduct.variations.colors && currentProduct.variations.colors.length > 0) {
+        selectedColor = currentProduct.variations.colors[0].name;
+        document.getElementById("selectedColorLabel").textContent = selectedColor;
+        const colorContainer = document.getElementById("colorSwatchesContainer");
+        colorContainer.innerHTML = currentProduct.variations.colors.map((c, idx) => `
+          <button type="button" class="color-swatch-btn ${idx === 0 ? 'active' : ''}" onclick="selectColor(this, '${c.name}', '${c.image || ''}')">
+            <span class="color-swatch-dot" style="background-color: ${c.hex};"></span>
+            <span>${c.name}</span>
+          </button>
+        `).join('');
+      } else {
+        document.getElementById("colorVariationsWrap").style.display = "none";
+      }
+
+      // Size / Spec variations
+      if (currentProduct.variations && currentProduct.variations.sizes && currentProduct.variations.sizes.length > 0) {
+        selectedSize = currentProduct.variations.sizes[0];
+        document.getElementById("selectedSizeLabel").textContent = selectedSize;
+        const sizeContainer = document.getElementById("sizePillsContainer");
+        sizeContainer.innerHTML = currentProduct.variations.sizes.map((s, idx) => `
+          <div class="variation-pill ${idx === 0 ? 'active' : ''}" onclick="selectSize(this, '${s}')">
+            ${s}
+          </div>
+        `).join('');
+      } else {
+        document.getElementById("sizeVariationsWrap").style.display = "none";
+      }
+
+      // Minimum order
+      currentQty = currentProduct.minOrder;
+      document.getElementById("detailsMoqLabel").textContent = `${currentProduct.minOrder} ${currentProduct.unit}`;
+      document.getElementById("detailsQtyInput").value = currentProduct.minOrder;
+      document.getElementById("detailsQtyInput").min = currentProduct.minOrder;
+
+      // Supplier Details Card
+      const sup = currentProduct.supplier;
+      document.getElementById("supplierNameDisplay").textContent = sup.name;
+      document.getElementById("supplierYearsDisplay").innerHTML = `<i class="bi bi-award-fill"></i> ${sup.years} Yrs`;
+      document.getElementById("supplierCountryDisplay").textContent = sup.countryName;
+      document.getElementById("supplierResponseRate").textContent = sup.responseRate;
+      document.getElementById("supplierResponseTime").textContent = sup.responseTime;
+      document.getElementById("supplierOnTimeDelivery").textContent = sup.onTimeDelivery;
+      document.getElementById("supplierTransactions").textContent = sup.transactions;
+      document.getElementById("supplierFloorSpace").textContent = sup.floorSpace;
+
+      // Wishlist status
+      updateWishlistIcon();
+
+      // Recalculate price
+      updatePriceCalculations();
+
+      // Specifications Table
+      const specsTable = document.querySelector("#detailsSpecsTable tbody");
+      if (currentProduct.specifications) {
+        let specsHtml = "";
+        Object.keys(currentProduct.specifications).forEach(key => {
+          specsHtml += `
+            <tr>
+              <th class="w-25 text-muted small bg-light">${key}</th>
+              <td class="small text-dark">${currentProduct.specifications[key]}</td>
+            </tr>
+          `;
+        });
+        specsTable.innerHTML = specsHtml;
+      }
+
+      // Overview Gallery
+      const overviewGal = document.getElementById("overviewGalleryShowcase");
+      if (overviewGal) {
+        overviewGal.innerHTML = currentProduct.images.slice(0, 3).map(img => `
+          <div class="col-md-4">
+            <img src="${img}" class="img-fluid rounded border shadow-sm" alt="Feature Showcase">
+          </div>
+        `).join('');
+      }
+    }
+
+    function selectThumb(thumbEl, imgSrc) {
+      document.querySelectorAll(".gallery-thumb-item").forEach(t => t.classList.remove("active"));
+      thumbEl.classList.add("active");
+      document.getElementById("mainGalleryImage").src = imgSrc;
+    }
+
+    function selectColor(btn, colorName, image) {
+      document.querySelectorAll(".color-swatch-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedColor = colorName;
+      document.getElementById("selectedColorLabel").textContent = colorName;
+      if (image) {
+        document.getElementById("mainGalleryImage").src = image;
+      }
+    }
+
+    function selectSize(pill, sizeName) {
+      document.querySelectorAll(".variation-pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      selectedSize = sizeName;
+      document.getElementById("selectedSizeLabel").textContent = sizeName;
+    }
+
+    function adjustDetailsQty(delta) {
+      const input = document.getElementById("detailsQtyInput");
+      let val = (parseInt(input.value, 10) || currentProduct.minOrder) + delta;
+      if (val < currentProduct.minOrder) val = currentProduct.minOrder;
+      input.value = val;
+      currentQty = val;
+      updatePriceCalculations();
+    }
+
+    function handleQtyChange() {
+      const input = document.getElementById("detailsQtyInput");
+      let val = parseInt(input.value, 10) || currentProduct.minOrder;
+      if (val < currentProduct.minOrder) {
+        val = currentProduct.minOrder;
+        input.value = val;
+        Cart.showToast(`Minimum order quantity is ${currentProduct.minOrder} ${currentProduct.unit}.`);
+      }
+      currentQty = val;
+      updatePriceCalculations();
+    }
+
+    function updatePriceCalculations() {
+      if (!currentProduct) return;
+      const unitPrice = Catalog.getUnitPriceForQty(currentProduct, currentQty);
+      const subtotal = currentQty * unitPrice;
+
+      document.getElementById("detailsSubtotalDisplay").textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById("detailsUnitPriceDisplay").textContent = `Unit price: $${unitPrice.toFixed(2)} / ${currentProduct.unit}`;
+
+      // Update active tier box highlight
+      currentProduct.tieredPricing.forEach((tier, idx) => {
+        const box = document.getElementById(`tierBox_${idx}`);
+        if (box) {
+          if (currentQty >= tier.minQty && (tier.maxQty === null || currentQty <= tier.maxQty)) {
+            box.classList.add("active");
+          } else {
+            box.classList.remove("active");
+          }
+        }
+      });
+
+      // Update Shipping estimate
+      const shippingMethod = currentProduct.shippingMethods ? currentProduct.shippingMethods[0] : null;
+      const shippingCost = shippingMethod ? (currentQty * shippingMethod.pricePerUnit + 15).toFixed(2) : (currentQty * 2.50).toFixed(2);
+      document.getElementById("detailsShippingCost").textContent = `$${shippingCost}`;
+    }
+
+    function setupImageMagnifier() {
+      const container = document.getElementById("mainImageContainer");
+      const img = document.getElementById("mainGalleryImage");
+
+      container.addEventListener("mousemove", (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+
+        img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+        img.style.transform = "scale(1.8)";
+      });
+
+      container.addEventListener("mouseleave", () => {
+        img.style.transformOrigin = "center center";
+        img.style.transform = "scale(1)";
+      });
+    }
+
+    function handleAddToCart() {
+      Cart.addItem(currentProduct, { color: selectedColor, size: selectedSize }, currentQty);
+    }
+
+    function handleBuyNow() {
+      const unitPrice = Catalog.getUnitPriceForQty(currentProduct, currentQty);
+      const buyNowItem = {
+        id: currentProduct.id,
+        name: currentProduct.name,
+        image: currentProduct.images[0],
+        supplierId: currentProduct.supplier.id,
+        supplierName: currentProduct.supplier.name,
+        supplierCountry: currentProduct.supplier.country,
+        minOrder: currentProduct.minOrder,
+        unit: currentProduct.unit,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: currentQty,
+        tieredPricing: currentProduct.tieredPricing,
+        unitPrice: unitPrice,
+        selected: true,
+        shippingCostPerUnit: 2.20,
+        leadTime: "Fast Dispatch"
+      };
+
+      sessionStorage.setItem("buy_now_item", JSON.stringify(buyNowItem));
+      window.location.href = "checkout.html";
+    }
+
+    function openSupplierInquiry() {
+      App.openContactSupplier(currentProduct.supplier.name, currentProduct.name);
+    }
+
+    function openSupplierChat() {
+      App.openChat(currentProduct.supplier.name);
+    }
+
+    function updateWishlistIcon() {
+      const isFav = Auth.isWishlisted(currentProduct.id);
+      const icon = document.getElementById("detailsWishlistIcon");
+      if (isFav) {
+        icon.classList.remove("bi-heart");
+        icon.classList.add("bi-heart-fill", "text-danger");
+      } else {
+        icon.classList.remove("bi-heart-fill", "text-danger");
+        icon.classList.add("bi-heart");
+      }
+    }
+
+    function toggleDetailsWishlist() {
+      const added = Auth.toggleWishlist(currentProduct.id);
+      updateWishlistIcon();
+      Cart.showToast(added ? "Added to your Favorites!" : "Removed from Favorites.");
+    }
+  </script>
+</body>
+</html>
