@@ -1,0 +1,1082 @@
+/**
+ * Alibaba Clone - Core Stylesheet
+ * Replicates the authentic visual styling, typography, colors, animations,
+ * and component architecture of the official Alibaba.com website.
+ */
+
+:root {
+  --alb-orange: #ff6a00;
+  --alb-orange-hover: #e55e00;
+  --alb-orange-light: #fff5ee;
+  --alb-dark: #111111;
+  --alb-dark-gray: #222222;
+  --alb-text-main: #222222;
+  --alb-text-muted: #666666;
+  --alb-text-light: #999999;
+  --alb-bg: #f4f5f8;
+  --alb-card-bg: #ffffff;
+  --alb-border: #e6e7eb;
+  --alb-border-light: #f0f1f4;
+  --alb-trade-blue: #0264d6;
+  --alb-verified-teal: #008779;
+  --alb-gold: #f59e0b;
+  --alb-radius-sm: 4px;
+  --alb-radius-md: 8px;
+  --alb-radius-lg: 12px;
+  --alb-radius-pill: 9999px;
+  --alb-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --alb-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --alb-shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.12);
+  --alb-transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--alb-text-main);
+  background-color: var(--alb-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography & Utility classes */
+a {
+  color: inherit;
+  transition: var(--alb-transition);
+}
+
+.text-orange {
+  color: var(--alb-orange) !important;
+}
+
+.bg-orange {
+  background-color: var(--alb-orange) !important;
+}
+
+.btn-alibaba {
+  background-color: var(--alb-orange);
+  color: #ffffff;
+  border: 1px solid var(--alb-orange);
+  font-weight: 600;
+  border-radius: var(--alb-radius-md);
+  transition: var(--alb-transition);
+}
+
+.btn-alibaba:hover, .btn-alibaba:focus {
+  background-color: var(--alb-orange-hover);
+  color: #ffffff;
+  border-color: var(--alb-orange-hover);
+}
+
+.btn-alibaba-outline {
+  background-color: transparent;
+  color: var(--alb-orange);
+  border: 1px solid var(--alb-orange);
+  font-weight: 600;
+  border-radius: var(--alb-radius-md);
+  transition: var(--alb-transition);
+}
+
+.btn-alibaba-outline:hover {
+  background-color: var(--alb-orange-light);
+  color: var(--alb-orange-hover);
+}
+
+.btn-alibaba-dark {
+  background-color: var(--alb-dark);
+  color: #ffffff;
+  border: 1px solid var(--alb-dark);
+  font-weight: 600;
+  border-radius: var(--alb-radius-md);
+  transition: var(--alb-transition);
+}
+
+.btn-alibaba-dark:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.hover-orange:hover {
+  color: var(--alb-orange) !important;
+}
+
+.hover-underline:hover {
+  text-decoration: underline !important;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 0.5px;
+}
+
+/* ========================================================
+   TOP HEADER & NAVIGATION
+======================================================== */
+.alibaba-top-bar {
+  background-color: #f7f8fa;
+  font-size: 12px;
+  border-bottom: 1px solid var(--alb-border-light);
+  color: var(--alb-text-muted);
+}
+
+.alibaba-top-bar a {
+  color: var(--alb-text-muted);
+  text-decoration: none;
+}
+
+.alibaba-top-bar a:hover {
+  color: var(--alb-orange);
+}
+
+.main-header {
+  background-color: var(--alb-dark);
+  color: #ffffff;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.alibaba-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.alibaba-brand-logo .logo-main {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.alibaba-brand-logo .logo-highlight {
+  color: var(--alb-orange);
+}
+
+.alibaba-brand-logo .logo-domain {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Alibaba Pill Search Bar */
+.alibaba-search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.alibaba-search-form {
+  display: flex;
+  background-color: #ffffff;
+  border: 2px solid var(--alb-orange);
+  border-radius: var(--alb-radius-pill);
+  overflow: visible;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alibaba-search-category {
+  border: none;
+  background: transparent;
+  padding: 8px 12px 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--alb-text-main);
+  outline: none;
+  cursor: pointer;
+  border-right: 1px solid var(--alb-border);
+  border-top-left-radius: var(--alb-radius-pill);
+  border-bottom-left-radius: var(--alb-radius-pill);
+}
+
+.alibaba-search-input {
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  flex-grow: 1;
+  background: transparent;
+  color: var(--alb-text-main);
+}
+
+.alibaba-search-input::placeholder {
+  color: #999999;
+}
+
+.alibaba-search-camera-btn {
+  background: transparent;
+  border: none;
+  color: #777777;
+  padding: 0 12px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.alibaba-search-camera-btn:hover {
+  color: var(--alb-orange);
+}
+
+.alibaba-search-submit-btn {
+  background-color: var(--alb-orange);
+  color: #ffffff;
+  border: none;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--alb-radius-pill);
+  margin: 3px;
+  cursor: pointer;
+  transition: var(--alb-transition);
+}
+
+.alibaba-search-submit-btn:hover {
+  background-color: var(--alb-orange-hover);
+}
+
+/* Search Suggestions dropdown */
+.search-suggestions-box {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  box-shadow: var(--alb-shadow-lg);
+  border: 1px solid var(--alb-border);
+  z-index: 1050;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* User Avatar circle */
+.user-avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--alb-orange), #ff9000);
+  color: #ffffff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Sub-nav / Category bar */
+.sub-nav-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--alb-border);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.sub-nav-link {
+  color: var(--alb-text-main);
+  text-decoration: none;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--alb-transition);
+}
+
+.sub-nav-link:hover, .sub-nav-link.active {
+  color: var(--alb-orange);
+}
+
+.sub-nav-link.active {
+  font-weight: 600;
+  border-bottom: 2px solid var(--alb-orange);
+}
+
+/* ========================================================
+   HOMEPAGE HERO & MEGA MENU
+======================================================== */
+.hero-category-sidebar {
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  box-shadow: var(--alb-shadow-sm);
+  border: 1px solid var(--alb-border);
+  overflow: visible;
+  position: relative;
+  z-index: 1000;
+}
+
+.category-menu-list {
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+}
+
+.category-menu-item {
+  position: static;
+}
+
+.category-menu-link {
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--alb-transition);
+}
+
+.category-menu-item:hover > .category-menu-link {
+  background-color: var(--alb-orange-light);
+  color: var(--alb-orange) !important;
+}
+
+.category-menu-item:hover > .category-menu-link i {
+  color: var(--alb-orange) !important;
+}
+
+/* Mega flyout */
+.category-mega-flyout {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 720px;
+  min-height: 100%;
+  z-index: 1050;
+  border-left: 2px solid var(--alb-orange);
+}
+
+.category-menu-item:hover .category-mega-flyout {
+  display: block;
+}
+
+/* Hero Carousel */
+.alibaba-hero-carousel {
+  border-radius: var(--alb-radius-md);
+  overflow: hidden;
+  box-shadow: var(--alb-shadow-sm);
+  height: 380px;
+}
+
+.alibaba-hero-carousel .carousel-inner,
+.alibaba-hero-carousel .carousel-item {
+  height: 100%;
+}
+
+.hero-slide {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+}
+
+.hero-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 60%, transparent 100%);
+}
+
+.hero-slide-content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  color: #ffffff;
+}
+
+/* Buyer Card / RFQ fast widget on hero */
+.hero-buyer-card {
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  border: 1px solid var(--alb-border);
+  box-shadow: var(--alb-shadow-sm);
+  padding: 20px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ========================================================
+   PRODUCT CARD COMPONENT & HOVER EFFECTS
+======================================================== */
+.alb-product-card {
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  border: 1px solid var(--alb-border-light);
+  overflow: hidden;
+  transition: var(--alb-transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.alb-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--alb-shadow-md);
+  border-color: #d1d5db;
+}
+
+.alb-product-card .card-image-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect ratio */
+  overflow: hidden;
+  background-color: #f7f8fa;
+}
+
+.alb-product-card .card-img-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.alb-product-card:hover .card-img-top {
+  transform: scale(1.06);
+}
+
+.alb-product-card .card-floating-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--alb-radius-sm);
+  background: rgba(17, 17, 17, 0.85);
+  color: #ffffff;
+}
+
+.alb-product-card .wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  transition: var(--alb-transition);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alb-product-card .wishlist-btn:hover,
+.alb-product-card .wishlist-btn.active {
+  background: #ffffff;
+  color: #e53e3e;
+}
+
+.alb-product-card .quick-view-btn-wrap {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--alb-transition);
+  z-index: 4;
+}
+
+.alb-product-card:hover .quick-view-btn-wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alb-product-card .card-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.alb-product-card .product-title {
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--alb-text-main);
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.alb-product-card .product-title:hover {
+  color: var(--alb-orange);
+}
+
+.alb-product-card .price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.alb-product-card .price-val {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--alb-dark);
+}
+
+.alb-product-card .price-unit {
+  font-size: 12px;
+  color: var(--alb-text-muted);
+}
+
+.alb-product-card .moq-row {
+  font-size: 12px;
+  color: var(--alb-text-muted);
+  margin-bottom: 8px;
+}
+
+.alb-product-card .supplier-row {
+  font-size: 11.5px;
+  color: var(--alb-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-top: 1px solid var(--alb-border-light);
+  padding-top: 8px;
+  margin-top: auto;
+}
+
+.badge-verified-supplier {
+  background-color: #e6f6f5;
+  color: var(--alb-verified-teal);
+  font-weight: 700;
+  font-size: 10.5px;
+  padding: 2px 6px;
+  border-radius: var(--alb-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.badge-trade-assurance {
+  background-color: #e8f1fc;
+  color: var(--alb-trade-blue);
+  font-weight: 700;
+  font-size: 10.5px;
+  padding: 2px 6px;
+  border-radius: var(--alb-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.badge-gold-supplier {
+  background-color: #fff8e6;
+  color: #b45309;
+  font-weight: 700;
+  font-size: 10.5px;
+  padding: 2px 6px;
+  border-radius: var(--alb-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ========================================================
+   TRADE ASSURANCE SECTION
+======================================================== */
+.trade-assurance-banner {
+  background: linear-gradient(135deg, #0f274a 0%, #173b70 100%);
+  color: #ffffff;
+  border-radius: var(--alb-radius-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.trade-assurance-banner::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.trade-pillar-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--alb-radius-md);
+  padding: 18px;
+  color: #ffffff;
+  transition: var(--alb-transition);
+}
+
+.trade-pillar-card:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   PRODUCT DETAILS PAGE
+======================================================== */
+.gallery-main-img-wrap {
+  width: 100%;
+  height: 480px;
+  background-color: #ffffff;
+  border: 1px solid var(--alb-border);
+  border-radius: var(--alb-radius-md);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
+}
+
+.gallery-main-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease-out;
+}
+
+.gallery-thumbnail-strip {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.gallery-thumb-item {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--alb-radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #ffffff;
+}
+
+.gallery-thumb-item.active {
+  border-color: var(--alb-orange);
+}
+
+.gallery-thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tiered Pricing Table in Product Details */
+.pricing-tier-grid {
+  display: flex;
+  gap: 12px;
+  background: #f7f8fa;
+  border-radius: var(--alb-radius-md);
+  padding: 16px;
+  border: 1px solid var(--alb-border);
+}
+
+.pricing-tier-box {
+  flex: 1;
+  border-right: 1px solid #e0e0e0;
+  padding: 0 8px;
+}
+
+.pricing-tier-box:last-child {
+  border-right: none;
+}
+
+.pricing-tier-box.active {
+  color: var(--alb-orange);
+}
+
+.pricing-tier-box .tier-qty {
+  font-size: 13px;
+  color: var(--alb-text-muted);
+}
+
+.pricing-tier-box .tier-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--alb-dark);
+}
+
+.pricing-tier-box.active .tier-price {
+  color: var(--alb-orange);
+}
+
+/* Variations: Color swatches */
+.color-swatch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--alb-border);
+  border-radius: var(--alb-radius-sm);
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: var(--alb-transition);
+}
+
+.color-swatch-btn:hover, .color-swatch-btn.active {
+  border-color: var(--alb-orange);
+  background: var(--alb-orange-light);
+  color: var(--alb-orange);
+}
+
+.color-swatch-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Right Supplier Card in Product Details */
+.supplier-detail-card {
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  border: 1px solid var(--alb-border);
+  box-shadow: var(--alb-shadow-sm);
+  padding: 20px;
+}
+
+/* ========================================================
+   SHOPPING CART PAGE
+======================================================== */
+.cart-supplier-group {
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  border: 1px solid var(--alb-border);
+  box-shadow: var(--alb-shadow-sm);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.cart-supplier-header {
+  background: #fafbfc;
+  border-bottom: 1px solid var(--alb-border);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item-row {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--alb-border-light);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-item-row:last-child {
+  border-bottom: none;
+}
+
+.cart-qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--alb-border);
+  border-radius: var(--alb-radius-sm);
+  overflow: hidden;
+}
+
+.cart-qty-btn {
+  background: #f7f8fa;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--alb-transition);
+}
+
+.cart-qty-btn:hover {
+  background: #e5e7eb;
+}
+
+.cart-qty-input {
+  width: 50px;
+  height: 32px;
+  border: none;
+  border-left: 1px solid var(--alb-border);
+  border-right: 1px solid var(--alb-border);
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  outline: none;
+}
+
+/* Cart Sticky Summary */
+.cart-summary-card {
+  background: #ffffff;
+  border-radius: var(--alb-radius-md);
+  border: 1px solid var(--alb-border);
+  box-shadow: var(--alb-shadow-sm);
+  padding: 24px;
+  position: sticky;
+  top: 90px;
+}
+
+/* ========================================================
+   CHECKOUT PAGE & TRADE ASSURANCE
+======================================================== */
+.checkout-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.checkout-stepper::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background-color: var(--alb-border);
+  z-index: 1;
+}
+
+.stepper-step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.stepper-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--alb-border);
+  color: var(--alb-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  margin: 0 auto 6px;
+}
+
+.stepper-step.active .stepper-circle {
+  border-color: var(--alb-orange);
+  background: var(--alb-orange);
+  color: #ffffff;
+}
+
+.stepper-step.completed .stepper-circle {
+  border-color: #10b981;
+  background: #10b981;
+  color: #ffffff;
+}
+
+.payment-method-tile {
+  border: 1px solid var(--alb-border);
+  border-radius: var(--alb-radius-md);
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: var(--alb-transition);
+}
+
+.payment-method-tile:hover, .payment-method-tile.selected {
+  border-color: var(--alb-orange);
+  background-color: var(--alb-orange-light);
+}
+
+/* ========================================================
+   LIVE CHAT SIMULATION DRAWER
+======================================================== */
+.alibaba-chat-drawer {
+  position: fixed;
+  bottom: 0;
+  right: 24px;
+  width: 360px;
+  height: 480px;
+  background: #ffffff;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--alb-border);
+  z-index: 1070;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(110%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alibaba-chat-drawer.open {
+  transform: translateY(0);
+}
+
+.chat-drawer-header {
+  background: var(--alb-dark);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-drawer-messages {
+  flex-grow: 1;
+  padding: 14px;
+  overflow-y: auto;
+  background-color: #f9fafb;
+}
+
+.chat-drawer-footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--alb-border);
+  background: #ffffff;
+}
+
+/* Floating Chat Launcher Button */
+.floating-chat-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1060;
+  background: linear-gradient(135deg, var(--alb-orange), #ff8800);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--alb-radius-pill);
+  padding: 12px 20px;
+  box-shadow: var(--alb-shadow-lg);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--alb-transition);
+}
+
+.floating-chat-launcher:hover {
+  transform: scale(1.05);
+}
+
+/* ========================================================
+   FOOTER
+======================================================== */
+.alibaba-footer {
+  background-color: #ffffff;
+  border-top: 1px solid var(--alb-border);
+  padding: 48px 0 24px;
+  font-size: 13px;
+  color: var(--alb-text-muted);
+}
+
+.alibaba-footer h6 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--alb-dark);
+  margin-bottom: 16px;
+}
+
+.alibaba-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alibaba-footer ul li {
+  margin-bottom: 8px;
+}
+
+.alibaba-footer a {
+  color: var(--alb-text-muted);
+  text-decoration: none;
+}
+
+.alibaba-footer a:hover {
+  color: var(--alb-orange);
+}
+
+.footer-bottom-copyright {
+  border-top: 1px solid var(--alb-border-light);
+  padding-top: 24px;
+  margin-top: 36px;
+  font-size: 12px;
+  color: #888888;
+}
+
+/* ========================================================
+   RESPONSIVE QUERIES
+======================================================== */
+@media (max-width: 991.98px) {
+  .hero-category-sidebar {
+    display: none;
+  }
+  .alibaba-hero-carousel {
+    height: 280px;
+  }
+  .hero-slide {
+    padding: 0 24px;
+  }
+  .gallery-main-img-wrap {
+    height: 340px;
+  }
+  .cart-summary-card {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .alibaba-search-category {
+    display: none;
+  }
+  .alibaba-hero-carousel {
+    height: 220px;
+  }
+  .hero-slide h1 {
+    font-size: 20px !important;
+  }
+  .pricing-tier-grid {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pricing-tier-box {
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+  }
+  .alibaba-chat-drawer {
+    width: 100%;
+    right: 0;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
